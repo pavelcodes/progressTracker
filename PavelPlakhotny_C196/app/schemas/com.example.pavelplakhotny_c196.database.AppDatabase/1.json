@@ -1,0 +1,259 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "b71b81e8e0d8120b9d851927be5db306",
+    "entities": [
+      {
+        "tableName": "term",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`term_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `term_name` TEXT, `term_start` TEXT, `term_end` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "term_id",
+            "columnName": "term_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "term_name",
+            "columnName": "term_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "term_start",
+            "columnName": "term_start",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "term_end",
+            "columnName": "term_end",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "term_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "course",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`course_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `course_title` TEXT, `course_notes` TEXT, `term_id_FK` INTEGER, `status` TEXT, `course_start` TEXT, `course_end` TEXT, FOREIGN KEY(`term_id_FK`) REFERENCES `term`(`term_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "course_id",
+            "columnName": "course_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "course_title",
+            "columnName": "course_title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "course_notes",
+            "columnName": "course_notes",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "term_id_FK",
+            "columnName": "term_id_FK",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "course_start",
+            "columnName": "course_start",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "course_end",
+            "columnName": "course_end",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "course_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "term_id_FK_Index",
+            "unique": false,
+            "columnNames": [
+              "term_id_FK"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `term_id_FK_Index` ON `${TABLE_NAME}` (`term_id_FK`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "term",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "term_id_FK"
+            ],
+            "referencedColumns": [
+              "term_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "assessment",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`assessment_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `assessment_title` TEXT, `type` TEXT, `due_date` TEXT, `course_id_FK` INTEGER NOT NULL, FOREIGN KEY(`course_id_FK`) REFERENCES `course`(`course_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "assessment_id",
+            "columnName": "assessment_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "assessment_title",
+            "columnName": "assessment_title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "assessment_type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "due_date",
+            "columnName": "due_date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "course_id_FK",
+            "columnName": "course_id_FK",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "assessment_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "course_id_FK_IndexAssessment",
+            "unique": false,
+            "columnNames": [
+              "course_id_FK"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `course_id_FK_IndexAssessment` ON `${TABLE_NAME}` (`course_id_FK`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "course",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "course_id_FK"
+            ],
+            "referencedColumns": [
+              "course_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "mentor",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mentor_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mentor_name` TEXT, `mentor_email` TEXT, `mentor_phone` TEXT, `course_id_FK` INTEGER NOT NULL, FOREIGN KEY(`course_id_FK`) REFERENCES `course`(`course_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "mentor_id",
+            "columnName": "mentor_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mentor_name",
+            "columnName": "mentor_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mentor_email",
+            "columnName": "mentor_email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mentor_phone",
+            "columnName": "mentor_phone",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "course_id_FK",
+            "columnName": "course_id_FK",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "mentor_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "course_id_FK_IndexMentor",
+            "unique": false,
+            "columnNames": [
+              "course_id_FK"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `course_id_FK_IndexMentor` ON `${TABLE_NAME}` (`course_id_FK`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "course",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "course_id_FK"
+            ],
+            "referencedColumns": [
+              "course_id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b71b81e8e0d8120b9d851927be5db306')"
+    ]
+  }
+}

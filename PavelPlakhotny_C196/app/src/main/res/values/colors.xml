@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#262525</color>
+    <color name="primary_variant">#1F1B24</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#00838F</color>
+    <color name="windowBackground">#121212</color>
+    <color name="navBar">#262525</color>
+    <color name="trasparent">#353636</color>
+    <color name="fab_tint">#00838F</color>
+    <color name="my_app_color_on_error">#CF6679</color>
+    <color name="on_primary">#000000</color>
+
+    <color name="secondary_variant">#121212</color>
+    <color name="my_app_surface_color">#121212</color>
+    <color name="on_secondary">#000000</color>
+    <color name="my_app_color_on_background">#D7D7D7</color>
+    <color name="my_app_color_on_surface">#D7D7D7</color>
+
+    <color name="button_text">#000000</color>
+    <color name="backgroundTint">#2c2c2c</color>
+    <color name="boxStroke">#1f1b24</color>
+
+    <color name="textColor">#D7D7D7</color>
+    <color name="secondary">#D7D7D7</color>
+    <color name="textPrimary">#DADADA</color>
+    <color name="control_highlight">#03DAC5</color>
+    <color name="hintText">#D7D7D7</color>
+</resources>

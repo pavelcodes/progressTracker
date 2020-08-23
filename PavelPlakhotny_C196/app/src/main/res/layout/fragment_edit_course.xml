@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="course"
+            type="com.example.pavelplakhotny_c196.database.entity.Course" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.courses.editCourse.EditCourseFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:isScrollContainer="true"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/course_cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/backgroundTint"
+                app:contentPadding="1dp"
+                tools:ignore="MissingClass">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/course_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:text="Course Information "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="#bb86fc"
+                        tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/course_name"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/course_label"
+                        android:padding="10dp"
+                        app:boxStrokeColor="@color/boxStroke"
+                        app:boxStrokeWidth="2dp"
+                        app:hintTextColor="#FFFFFF"
+                        tools:ignore="MissingClass">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/course_name_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:hint="@string/course_name_Field"
+                            android:text="@{course.course_title}"
+                            tools:ignore="MissingClass">
+
+                        </com.google.android.material.textfield.TextInputEditText>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/course_duration"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/course_name"
+                        android:padding="10dp"
+                        app:boxStrokeColor="@color/boxStroke"
+                        app:boxStrokeWidth="2dp"
+                        app:hintTextColor="#FFFFFF"
+                        tools:ignore="MissingClass">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/course_duration_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/course_date"
+                            android:inputType="date"
+                            tools:ignore="MissingClass">
+
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/status_input_layout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/course_duration"
+                        android:hint="Status"
+                        android:padding="10dp"
+                        app:boxStrokeColor="@color/boxStroke"
+                        app:hintTextColor="#FFFFFF"
+                        tools:ignore="MissingClass">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/status_drop_down"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            tools:ignore="LabelFor" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/course_notes"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/status_input_layout"
+                        android:padding="10dp"
+                        app:boxStrokeColor="@color/boxStroke"
+                        app:boxStrokeWidth="2dp"
+                        app:endIconDrawable="@drawable/ic_baseline_send_24"
+                        app:endIconMode="custom"
+                        app:hintTextColor="#FFFFFF"
+                        tools:ignore="MissingClass">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/course_notes_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="50dp"
+                            android:hint="@string/course_notes"
+                            android:inputType="textMultiLine"
+                            android:text="@{course.course_notes}"
+                            app:counterEnabled="true"
+                            tools:ignore="MissingClass">
+
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mentor_cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/backgroundTint"
+                app:contentPadding="1dp"
+                tools:ignore="MissingClass">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/mentor_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:paddingHorizontal="10dp"
+                        android:paddingLeft="20dp"
+                        android:text="@string/mentor_label_add_course"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="#bb86fc"
+                        tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/mentor_name"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/mentor_label"
+                        android:layout_marginStart="9dp"
+                        android:layout_marginEnd="9dp"
+                        android:padding="10dp"
+                        app:boxStrokeColor="@color/boxStroke"
+                        app:boxStrokeWidth="2dp"
+                        app:hintTextColor="#FFFFFF"
+                        tools:ignore="MissingClass">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/mentor_name_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="50dp"
+                            android:hint="@string/mentor_name"
+                            android:text="@{course.mentor_name}"
+                            tools:ignore="MissingClass">
+
+                        </com.google.android.material.textfield.TextInputEditText>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/mentor_phone"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/mentor_name"
+                        android:layout_marginStart="9dp"
+                        android:layout_marginEnd="9dp"
+                        android:padding="10dp"
+                        app:boxStrokeColor="@color/boxStroke"
+                        app:boxStrokeWidth="2dp"
+                        app:hintTextColor="#FFFFFF"
+                        tools:ignore="MissingClass">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/mentor_phone_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="50dp"
+                            android:hint="@string/mentor_phone"
+                            android:inputType="phone"
+                            android:text="@{course.mentor_phone}"
+                            tools:ignore="MissingClass">
+
+                        </com.google.android.material.textfield.TextInputEditText>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/mentor_email"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/mentor_phone"
+                        android:layout_marginStart="9dp"
+                        android:layout_marginEnd="9dp"
+                        android:padding="10dp"
+                        app:boxStrokeColor="@color/boxStroke"
+                        app:boxStrokeWidth="2dp"
+                        app:hintTextColor="#FFFFFF"
+                        tools:ignore="MissingClass">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/mentor_email_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="50dp"
+                            android:hint="@string/mentor_email"
+                            android:text="@{course.mentor_email}"
+                            tools:ignore="MissingClass">
+
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingClass">
+
+                <TextView
+                    android:id="@+id/assessment_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="25dp"
+                    android:text="Assessment Information "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#bb86fc"
+                    tools:ignore="RtlSymmetry" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab_add_assessment_to_course"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#DBB2FF"
+                    android:clickable="true"
+                    android:contentDescription="@string/add_fb"
+                    android:elevation="6dp"
+                    android:hapticFeedbackEnabled="true"
+                    android:src="@drawable/ic_add_btn"
+                    android:transitionName="activity_trans"
+                    app:elevation="6dp"
+                    app:fabSize="mini"
+                    app:rippleColor="#985EFF"
+                    tools:ignore="MissingClass" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ui.courses.editCourse.EditCourseFragement"
+                tools:ignore="MissingClass">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/assessment_recycler_in_edit_course"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:scrollbars="vertical"
+                    tools:listitem="@layout/assessment_content"
+                    tools:ignore="MissingClass" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="MissingClass">
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/save_edited_course"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="70dp"
+                    android:backgroundTint="#84DFE2"
+                    android:clickable="true"
+                    android:contentDescription="@string/add_fb"
+                    android:hapticFeedbackEnabled="true"
+                    android:text="save"
+                    android:textColor="#000000"
+                    android:transitionName="activity_trans"
+                    app:elevation="6dp"
+                    app:fabSize="mini"
+                    app:icon="@drawable/ic_baseline_save_24"
+                    app:layout_anchorGravity="bottom|right"
+                    app:rippleColor="#A7FFEB"
+                    tools:ignore="MissingClass" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

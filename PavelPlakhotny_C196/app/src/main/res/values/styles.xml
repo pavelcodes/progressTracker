@@ -1,0 +1,107 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/on_primary</item>
+        <item name="colorAccent">#B388FF</item>
+        <item name="background">@color/primary_variant</item>
+        <item name="colorSurface">@color/windowBackground</item>
+
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="colorOnPrimary">@color/textColor</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/windowBackground</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+        <item name="colorControlActivated">@color/my_app_color_on_error</item>
+        <item name="colorControlHighlight">@color/control_highlight</item>
+        <item name="android:textColorPrimary">@color/textPrimary</item>
+        <item name="colorOnBackground">@color/secondary</item>
+        <item name="colorOnSurface">@color/textPrimary</item>
+        <item name="colorPrimarySurface">@color/windowBackground</item>
+        <item name="android:colorBackground">@color/windowBackground</item>
+        <item name="android:timePickerDialogTheme">@style/MyTimePickerDialogStyle</item>
+        <item name="android:selectableItemBackgroundBorderless">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="MyThemeOverlay.MaterialComponents.MaterialAlertDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="buttonBarPositiveButtonStyle">@style/TextButton.Dialog1</item>
+        <item name="buttonBarNegativeButtonStyle">@style/TextButton.Dialog2</item>
+        <item name="colorControlNormal">@color/textPrimary</item>
+        <item name="colorControlActivated">#B388FF</item>
+
+    </style>
+
+
+    //calendar
+
+    <style name="MaterialCalendarTheme_RangeFill" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="materialCalendarStyle">@style/MyMaterialCalendar</item>
+        <item name="buttonBarPositiveButtonStyle">@style/TextButton.Dialog1</item>
+        <item name="buttonBarNegativeButtonStyle">@style/TextButton.Dialog2</item>
+        <item name="colorSurface">@color/colorPrimaryDark
+        </item>
+        <item name="colorPrimary">@color/textPrimary
+        </item>
+        <item name="materialCalendarHeaderLayout">@color/navBar
+        </item>
+        <item name="colorOnPrimarySurface">@color/my_app_color_on_error</item>
+        <item name="daySelectedStyle">
+            @style/Widget.MaterialComponents.MaterialCalendar.Day.Selected
+        </item>
+
+    </style>
+
+    <style name="Widget.MaterialComponents.MaterialCalendar.Day.Selected">
+        <item name="itemFillColor">@color/colorAccent</item>
+        <item name="itemTextColor">@color/colorPrimaryDark</item>
+        <item name="itemStrokeWidth">0dp</item>
+    </style>
+
+    <style name="MyMaterialCalendar" parent="Widget.MaterialComponents.MaterialCalendar">
+        <item name="rangeFillColor">@color/primary_variant</item>
+        <item name="subtitleTextColor">@color/textPrimary</item>
+        <item name="iconTint">@color/textPrimary</item>
+
+    </style>
+
+    <style name="TextButton.Dialog1" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="backgroundTint">#B388FF</item>
+    </style>
+
+    <style name="TextButton.Dialog2" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="backgroundTint">#CF6679</item>
+    </style>
+
+    <style name="MyTimePickerDialogStyle" parent="@style/ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="colorSurface">@color/colorPrimaryDark
+        </item>
+        <item name="showTitle">true</item>
+        <item name="backgroundColor">#000000</item>
+        <item name="colorControlActivated">@color/navBar</item>
+        <item name="colorAccent">@color/navBar</item>
+        <item name="android:windowBackground">#000000</item>
+        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/colorPrimaryDark</item>
+        <item name="android:numbersBackgroundColor">@color/my_app_color_on_error</item>
+        <item name="android:colorPrimary">#000000</item>
+        <item name="android:numbersSelectorColor">#88000000</item>
+        <item name="android:buttonBarNegativeButtonStyle">
+            @style/DatePickerTheme.ButtonBarNegativeButtonStyle
+        </item>
+        <item name="android:buttonBarPositiveButtonStyle">
+            @style/DatePickerTheme.ButtonBarPositiveButtonStyle
+        </item>
+    </style>
+
+    <style name="DatePickerTheme.ButtonBarNegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="backgroundTint">#CF6679</item>
+    </style>
+
+    <style name="DatePickerTheme.ButtonBarPositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="backgroundTint">#B388FF</item>
+    </style>
+</resources>

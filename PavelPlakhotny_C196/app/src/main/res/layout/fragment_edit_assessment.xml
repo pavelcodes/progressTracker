@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="assessment"
+            type="com.example.pavelplakhotny_c196.database.entity.Assessment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.assessments.assessmentEdit.EditAssessmentFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:isScrollContainer="true"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/assessment_cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/backgroundTint"
+                app:contentPadding="1dp"
+                tools:ignore="MissingClass">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/assessment_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="20dp"
+                        android:paddingHorizontal="10dp"
+                        android:paddingTop="5dp"
+                        android:text="Assessment Information "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="#bb86fc" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/assessment_name"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/assessment_label"
+                        android:padding="10dp"
+                        app:boxStrokeColor="@color/boxStroke"
+                        app:boxStrokeWidth="2dp"
+                        app:hintTextColor="#FFFFFF"
+                        tools:ignore="MissingClass">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/assessment_name_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:hint="@string/assessment_name_Field"
+                            android:text="@{assessment.assessment_title}"
+                            tools:ignore="MissingClass">
+
+                        </com.google.android.material.textfield.TextInputEditText>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/assessment_due"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/assessment_name"
+                        android:padding="10dp"
+                        app:boxStrokeColor="@color/boxStroke"
+                        app:boxStrokeWidth="2dp"
+                        app:hintTextColor="#FFFFFF"
+                        tools:ignore="MissingClass">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/assessment_due_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/assessment_due"
+                            android:inputType="date"
+                            android:text="@{assessment.start_date + ' ' + assessment.due_date}"
+                            tools:ignore="MissingClass">
+
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/assessment_type_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/assessment_due"
+                        android:layout_marginVertical="20dp"
+
+                        android:paddingHorizontal="10dp"
+                        android:paddingTop="5dp"
+                        android:text="Assessment Type "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="#bb86fc" />
+
+                    <RadioGroup
+                        android:id="@+id/type_radio_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/assessment_type_label"
+                        android:layout_marginTop="5dp"
+                        android:checkedButton="@+id/objective_radio"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/objective_radio"
+                            android:layout_width="120dp"
+                            android:layout_height="47dp"
+                            android:layout_marginStart="10dp"
+                            android:background="@drawable/radio1_selector"
+                            android:button="@android:color/transparent"
+                            android:gravity="center"
+                            android:paddingHorizontal="8dp"
+                            android:text="@string/objective" />
+
+                        <RadioButton
+                            android:id="@+id/performance_radio"
+                            android:layout_width="120dp"
+                            android:layout_height="47dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/radio2_selector"
+                            android:button="@android:color/transparent"
+                            android:gravity="center"
+                            android:paddingHorizontal="8dp"
+                            android:text="@string/performance" />
+
+                    </RadioGroup>
+
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="MissingClass">
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/save_EditAssessment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="70dp"
+                    android:backgroundTint="#84DFE2"
+                    android:clickable="true"
+                    android:contentDescription="@string/add_fb"
+                    android:hapticFeedbackEnabled="true"
+                    android:text="save"
+                    android:textColor="#000000"
+                    android:transitionName="activity_trans"
+                    app:elevation="6dp"
+                    app:fabSize="mini"
+                    app:icon="@drawable/ic_baseline_save_24"
+                    app:layout_anchorGravity="bottom|right"
+                    app:rippleColor="#A7FFEB"
+                    tools:ignore="MissingClass" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>
+
+

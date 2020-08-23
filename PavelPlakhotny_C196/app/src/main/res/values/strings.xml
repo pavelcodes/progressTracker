@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">PavelPlakhotny_C196</string>
+    <string name="title_home">Home</string>
+    <string name="title_term">Terms</string>
+    <string name="title_courses">Courses</string>
+    <string name="add_fb">add fob</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="term_name_Field">Term Name</string>
+    <string name="save">Save</string>
+    <string name="term_date">Term Date</string>
+    <string name="end">End Date</string>
+    <string name="title_assessment">Assessments</string>
+    <string name="course_name_Field">Course Name</string>
+    <string name="course_date">Course Duration</string>
+    <string name="mentor_name">Mentor Name</string>
+    <string name="mentor_phone">Mentor Phone</string>
+    <string name="mentor_email">Mentor Email</string>
+    <string name="course_notes">Course Notes</string>
+    <string name="mentor_label_add_course">Mentor Information</string>
+    <string name="objective">Objective</string>
+    <string name="performance">Performance</string>
+    <string name="assessment_name_Field">Assessment Name</string>
+    <string name="assessment_due">Assessment Due Date</string>
+    <string name="termDates">%1$s, %2$s</string>
+    <string name="assessmentLabel">  Assessment:</string>
+    <string name="courseFinishDate">End Date:</string>
+    <string name="assessmentDueDate">  Due date:</string>
+    <string name="dateStartLabel">Term Starts: </string>
+    <string name="dateEndLabel">" Term Ends: "</string>
+    <string name="courseDateStartLabel">Start Date: </string>
+    <string name="courseDateEndLabel">" Course Ends: "</string>
+    <string name="assessmentDateStartLabel">Start Date: </string>
+    <string name="assessmentDateEndLabel">" Course Ends: "</string>
+    <string name="assessmentStartDate">"Start Date: "</string>
+    <string name="assessmentDueDateToast">"Assessment Due Date: "</string>
+    <string-array name="labels_array">
+        <item>Plan To Take</item>
+        <item>In Progress</item>
+        <item>Completed</item>
+        <item>Incomplete</item>
+    </string-array>
+    <item name="Performance" format="string" type="id" />
+    <item name="Objective" format="string" type="id" />
+</resources>

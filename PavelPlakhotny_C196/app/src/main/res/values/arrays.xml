@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_array">
+        <item> Plan To Take</item>
+        <item><font fgcolor='#4BB2F9'>In Progress</font></item>
+        <item><font fgcolor='#4BB2F9'>Completed</font></item>
+        <item><font fgcolor='#4BB2F9'>Incomplete</font></item>
+    </string-array>
+</resources>

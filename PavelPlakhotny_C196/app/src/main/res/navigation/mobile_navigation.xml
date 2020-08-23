@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.pavelplakhotny_c196.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_terms"
+        android:name="com.example.pavelplakhotny_c196.ui.terms.termList.TermListFragment"
+        android:label="@string/title_term"
+        tools:layout="@layout/fragment_term">
+        <action
+            android:id="@+id/action_termListFragment_to_editTermFragment"
+            app:destination="@id/editTermFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/editTermFragment"
+        android:name="com.example.pavelplakhotny_c196.ui.terms.editTerm.EditTermFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:label="Term Details"
+        tools:layout="@layout/fragment_edit_term">
+        <action
+            android:id="@+id/action_edit_to_termsList"
+            app:destination="@id/navigation_terms"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/action_termEdit_to_editCourse"
+            app:destination="@id/editCourseFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_courses"
+        android:name="com.example.pavelplakhotny_c196.ui.courses.courseList.CourseListFragment"
+        android:label="@string/title_courses"
+        tools:layout="@layout/fragment_course">
+
+        <action
+            android:id="@+id/action_courseListFragment_to_editCourseFragment"
+            app:destination="@id/editCourseFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editCourseFragment"
+        android:name="com.example.pavelplakhotny_c196.ui.courses.editCourse.EditCourseFragment"
+        android:label="Course Details"
+        tools:layout="@layout/fragment_edit_term">
+        <action
+            android:id="@+id/action_editCourse_to_courseList"
+            app:destination="@id/navigation_courses"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/action_courseEdit_to_assessmentEdit"
+            app:destination="@id/editAssessmentFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_assessment"
+        android:name="com.example.pavelplakhotny_c196.ui.assessments.assessmentList.AssessmentListFragment"
+        android:label="@string/title_assessment"
+        tools:layout="@layout/fragment_assessment">
+        <action
+            android:id="@+id/action_assessmentListFragment_to_editAssessmentFragment"
+            app:destination="@id/editAssessmentFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editAssessmentFragment"
+        android:name="com.example.pavelplakhotny_c196.ui.assessments.assessmentEdit.EditAssessmentFragment"
+        android:label="Assessment Details"
+        tools:layout="@layout/fragment_edit_assessment">
+        <action
+            android:id="@+id/action_editAssessment_to_assessmentList"
+            app:destination="@id/navigation_assessment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+</navigation>

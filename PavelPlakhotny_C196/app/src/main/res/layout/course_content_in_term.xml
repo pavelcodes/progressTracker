@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="course"
+            type="com.example.pavelplakhotny_c196.database.entity.Course" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginVertical="25dp"
+        android:backgroundTint="@color/backgroundTint"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp"
+
+        tools:ignore="MissingClass">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/course_name"
+            app:layout_constraintTop_toTopOf="@+id/course_name"
+            tools:ignore="MissingClass">
+
+            <TextView
+                android:id="@+id/overline"
+                android:layout_width="394dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="4dp"
+                android:text="Course:"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                android:textColor="@color/textPrimary"
+                app:layout_constraintBottom_toTopOf="@+id/course_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/course_name"
+                android:layout_width="378dp"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:text="@{course.course_title}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="@color/textPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/overline"
+                app:layout_constraintTop_toBottomOf="@+id/overline"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="27dp"
+                tools:text="Course Name"
+                tools:ignore="Autofill,LabelFor" />
+
+
+            <TextView
+                android:id="@+id/course_dates"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{course.course_start +' '+'-'+' '+ course.course_end}"
+                android:textColor="#8e8e8e"
+                app:layout_constraintEnd_toEndOf="@+id/course_name"
+                app:layout_constraintStart_toStartOf="@+id/course_name"
+                app:layout_constraintTop_toBottomOf="@+id/course_name"
+                tools:text="Course Date" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
